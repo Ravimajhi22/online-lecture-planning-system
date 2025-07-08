@@ -1,0 +1,34 @@
+
+
+
+
+<%@include file="mainmenu.jsp" %>
+<br><br><br>
+<div class="container-fluid">
+<div class="row">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+  <div class="well">
+  <div class="text-center h3 text-uppercase">Student Login </div>
+  <form action="Studentlogindata.jsp" method="post" >
+  <div class="form-group">
+    <label class="label-control">User ID</label>
+    <input type="text" name="userid" class="form-control" required>
+  </div>
+
+  <div class="form-group">
+    <label class="label-control">Password</label>
+    <input type="password" name="password" class="form-control" required>
+  </div>
+  
+  <input type="submit" class="btn btn-primary btn-block" value="Login">
+  
+  <br>
+  <a href="studentregistrationpage.jsp" class="btn btn-primary btn-block">Register</a>
+  </form>
+  </div>
+  </div>
+  <div class="col-md-4"></div>
+</div>
+</div>
+<%@ include file="footer.jsp" %>

@@ -1,0 +1,51 @@
+<%@ include file="Hodmainmenu.jsp" %>
+<br><br><br><br><br>
+
+<div class="container-fluid"> 
+<br><br>
+
+<%@ include file="connect.jsp" %>
+<div class="container">
+<div class="h3 text-center">VIEW SYLLABUS DETAILS</div>
+<div class="table-responsive">
+<%
+
+
+
+try
+{
+	Statement st=con.createStatement();
+	ResultSet rs=st.executeQuery("select * from addsyllabus");
+	int count=0;
+	out.println("<table class='table table-bordered'>");
+	out.println("<tr>"+"<th>"+"Week Day"+"</th>"+"<th>"+"Date Of Class"+"</th>"+"<th>"+"Description"+"</th>"+"<th>"+"Id"+"</th>"+"<th>"+"Faculty Name"+"</th>"+"<th>"+"Subject"+"</th>"+"<th>"+"Syllabus"+"</th>"+"<th>"+"Duration"+"</th>"+"<th>"+"Course"+"</th>"+"<th>"+"Stream"+"</th>"+"<th>"+"Year"+"</th>"+"<th>"+"Semister"+"</th>"+"<th>"+"Status"+"</th>"+"</tr>");
+
+	while(rs.next()) 
+	{
+		count++;
+		out.println("<tr>");
+		out.println("<td>"+rs.getString(1)+"</td>"+"<td>"+ rs.getString(2)+"</td>"+"<td>"+rs.getString(3)+"</td>"+"<td>"+rs.getInt(4)+"</td>"+"<td>"+rs.getString(5)+"</td>"+"<td>"+rs.getString(6)+"</td>"+"<td>"+rs.getString(7)+"</td>"+"<td>"+rs.getString(8)+"</td>"+"<td>"+rs.getString(9)+"</td>"+"<td>"+rs.getString(10)+"</td>"+"<td>"+rs.getString(11)+"</td>"+"<td>"+rs.getString(12)+"</td>"+"<td>"+rs.getString(13)+"</td>");
+		
+		out.println("</tr>");
+	}
+	
+	out.println("</table>");
+	if(count==0) {
+		System.out.println("no records found");
+	}
+	
+	st.close();
+	st.close();
+	con.close();
+	
+}
+catch(Exception e)
+{
+	e.printStackTrace();
+}
+%>
+</div>
+</div>
+</div>
+
+<%@ include file="footer.jsp" %>
